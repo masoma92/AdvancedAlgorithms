@@ -10,7 +10,7 @@ namespace Halal.Solvers
 {
     class HillClimbingStochastic<T>
     {
-        private const int e = 20;
+        private const int e = 5;
 
         private readonly IHillClimbingProblem<T> _problem;
 

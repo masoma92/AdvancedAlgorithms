@@ -56,14 +56,15 @@ namespace Halal.Problems
             {
                 this.previousBoundary = this.actualBoundary;
                 this.noBetterSolutionCounter = 0;
+
+                this.WriteResults(solution);
+                this.iterationCounter++;
             }
             else
             {
                 this.noBetterSolutionCounter++;
             }
 
-            this.WriteResults(solution);
-            this.iterationCounter++;
 
             if (this.noBetterSolutionCounter >= 100)
             {
