@@ -42,7 +42,7 @@ namespace Halal.Problems
             _known_values = new List<ValuePair>();
             _population = new List<Chromosome>();
 
-            LoadKnownValuesFromFile("function_approx.txt");
+            LoadKnownValuesFromFile(@"../../Helpers/function_approx.txt");
         }
 
         public void InitializePopulations()
@@ -191,7 +191,7 @@ namespace Halal.Problems
             {
                 Console.Clear();
                 Console.WriteLine($"A: {c.A}, B: {c.B}, C: {c.C}, D: {c.D}, E: {c.E}, fitness: {c.currentFitness}");
-                Console.WriteLine(generationCounter);
+                Console.WriteLine("GenerationCounter: " + generationCounter);
             }
             ++generationCounter;
         }

@@ -40,6 +40,7 @@ namespace Halal.Solvers
                 }
                 _problem.PopultionOverWrite(newPopulation);
             }
+            Console.WriteLine("END");
             return _problem.GetBestFitness();
         }
     }
