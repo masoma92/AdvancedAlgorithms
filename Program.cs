@@ -10,7 +10,7 @@ namespace Halal
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Function Approximation with Genetic Algorithm, press enter for start!");
             Console.ReadLine();

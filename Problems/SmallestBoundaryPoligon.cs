@@ -10,8 +10,8 @@ namespace Halal.Problems
 {
     public class Point
     {
-        public float x { get; set; }
-        public float y { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
     }
     public class SmallestBoundaryPoligon : IHillClimbingProblem<Point>
     {
@@ -39,9 +39,11 @@ namespace Halal.Problems
                 while (!sr.EndOfStream)
                 {
                     string[] temp = sr.ReadLine().Split('\t');
-                    var p = new Point();
-                    p.x = float.Parse(temp[0]);
-                    p.y = float.Parse(temp[1]);
+                    var p = new Point
+                    {
+                        X = float.Parse(temp[0]),
+                        Y = float.Parse(temp[1])
+                    };
                     solution.Add(p);
                 }
             }
@@ -86,7 +88,7 @@ namespace Halal.Problems
                 newPoints = new List<Point>();
                 for (int i = 0; i < solution.Count; i++)
                 {
-                    newPoints.Add(new Point { x = solution[i].x, y = solution[i].y });
+                    newPoints.Add(new Point { X = solution[i].X, Y = solution[i].Y });
                 }
                 
                 for (int i = 0; i < newPoints.Count; i++)
@@ -98,9 +100,9 @@ namespace Halal.Problems
                         e = -e;
 
                     if (random == 0)
-                        newPoints[i].x += e;
+                        newPoints[i].X += e;
                     else
-                        newPoints[i].y += e;
+                        newPoints[i].Y += e;
                 }
                 
             } while (OuterDistanceToBoundary(newPoints) != 0);
@@ -122,9 +124,11 @@ namespace Halal.Problems
                 while (!sr.EndOfStream)
                 {
                     string[] temp = sr.ReadLine().Split(';');
-                    var p = new Point();
-                    p.x = float.Parse(temp[0]);
-                    p.y = float.Parse(temp[1]);
+                    var p = new Point
+                    {
+                        X = float.Parse(temp[0]),
+                        Y = float.Parse(temp[1])
+                    };
                     this.Points.Add(p);
                 }
             }
@@ -132,8 +136,8 @@ namespace Halal.Problems
 
         private float DistanceFromLine(Point lp1, Point lp2, Point p)
         {
-            var result = ((lp2.y - lp1.y) * p.x - (lp2.x - lp1.x) * p.y + lp2.x * lp1.y - lp2.y * lp1.x) / Math.Sqrt(Math.Pow(lp2.y - lp1.y, 2) + 
-                Math.Pow(lp2.x - lp1.x, 2));
+            var result = ((lp2.Y - lp1.Y) * p.X - (lp2.X - lp1.X) * p.Y + lp2.X * lp1.Y - lp2.Y * lp1.X) / Math.Sqrt(Math.Pow(lp2.Y - lp1.Y, 2) + 
+                Math.Pow(lp2.X - lp1.X, 2));
 
             return (float)result;
         }
@@ -169,7 +173,7 @@ namespace Halal.Problems
             {
                 Point p1 = solution[li];
                 Point p2 = solution[(li + 1) % solution.Count];
-                sum_length += (float)Math.Sqrt(Math.Pow(p1.x - p2.x, 2) + Math.Pow(p1.y - p2.y, 2));
+                sum_length += (float)Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
             }
 
             return sum_length;
@@ -184,13 +188,13 @@ namespace Halal.Problems
                 sw.WriteLine($"Fitness\t{(int)this.actualBoundary}");
                 foreach (var item in this.Points)
                 {
-                    sw.WriteLine($"Point\t{item.x}\t{item.y}\tBlue");
+                    sw.WriteLine($"Point\t{item.X}\t{item.Y}\tBlue");
                 }
 
                 for (int i = 0; i < solution.Count; i++)
                 {
-                    sw.WriteLine($"Point\t{solution[i].x}\t{solution[i].y}\tRed");
-                    sw.WriteLine($"Line\t{solution[i].x}\t{solution[i].y}\t{solution[(i+1) % solution.Count].x}\t{solution[(i+1) % solution.Count].y}\tred");
+                    sw.WriteLine($"Point\t{solution[i].X}\t{solution[i].Y}\tRed");
+                    sw.WriteLine($"Line\t{solution[i].X}\t{solution[i].Y}\t{solution[(i+1) % solution.Count].X}\t{solution[(i+1) % solution.Count].Y}\tred");
                 }
             }
         }
