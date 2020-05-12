@@ -67,16 +67,7 @@ namespace Halal.Problems
                 this.noBetterSolutionCounter++;
             }
 
-
-            if (this.noBetterSolutionCounter >= 100)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-            
+            return this.noBetterSolutionCounter >= 100;
         }
 
         public List<Point> Distance(List<Point> solution, float e)
