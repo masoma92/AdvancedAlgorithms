@@ -26,8 +26,17 @@ namespace Halal
             SmallestBoundaryPoligon SBP = new SmallestBoundaryPoligon();
             HillClimbingStochastic<Point> HCS = new HillClimbingStochastic<Point>(SBP);
             HCS.HillClimbingStochasticSolver();
-            Console.WriteLine("Result in bin/debug!");
+            Console.WriteLine("Result in bin/debug/smallest_boundary_hillclimbingstochastic!");
             Console.ReadKey();
+
+            Console.Write("Travelling Salesman with Random Optimization, press enter for start!");
+            Console.ReadLine();
+            TravellingSalesman TS = new TravellingSalesman();
+            RandomOptimization<Town> RO = new RandomOptimization<Town>(TS);
+            RO.RandomOptimizationSolver();
+            Console.WriteLine("Result in bin/debug/travelling_salesman_results!");
+            Console.ReadKey();
+
         }
     }
 }

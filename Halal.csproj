@@ -44,13 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IHillClimbingProblem.cs" />
+    <Compile Include="Interfaces\IRandomOptimization.cs" />
     <Compile Include="Problems\FunctionApproximation.cs" />
     <Compile Include="Problems\SmallestBoundaryPoligon.cs" />
+    <Compile Include="Problems\TravellingSalesman.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solvers\GeneticAlgorithm.cs" />
     <Compile Include="Solvers\HillClimbingStochastic.cs" />
     <Compile Include="Interfaces\IGeneticProblem.cs" />
+    <Compile Include="Solvers\RandomOptimization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
