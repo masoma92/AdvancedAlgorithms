@@ -28,9 +28,11 @@ namespace Halal
             HCS.HillClimbingStochasticSolver();
             Console.WriteLine("Result in bin/debug/smallest_boundary_hillclimbingstochastic!");
             Console.ReadKey();
+            Console.Clear();
 
             Console.Write("Travelling Salesman with Random Optimization, press enter for start!");
             Console.ReadLine();
+            Console.WriteLine("Random Optimization in progress...");
             TravellingSalesman TS = new TravellingSalesman();
             RandomOptimization<Town> RO = new RandomOptimization<Town>(TS);
             RO.RandomOptimizationSolver();
